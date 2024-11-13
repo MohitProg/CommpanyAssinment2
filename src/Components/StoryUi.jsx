@@ -89,7 +89,7 @@ const StoryUi = ({ value }) => {
         {askhn ? (
           <>
             <div
-              className="text-sm text-gray-700font-semibold  leading-relaxed"
+              className="text-sm  text-gray-700 font-semibold  leading-relaxed"
               dangerouslySetInnerHTML={{ __html: value?.story_text }}
             />
           </>
@@ -100,7 +100,7 @@ const StoryUi = ({ value }) => {
         {showhn ? (
           <>
             <div
-              className="text-sm text-gray-700font-semibold  leading-relaxed"
+              className="text-sm text-gray-700font-semibold break-words break-all  leading-relaxed"
               dangerouslySetInnerHTML={{ __html: value?.story_text }}
             />
           </>
@@ -111,7 +111,7 @@ const StoryUi = ({ value }) => {
         {lounchhn ? (
           <>
             <div
-              className="text-sm text-gray-700font-semibold  leading-relaxed"
+              className="text-sm text-gray-700font-semibold break-words break-all  leading-relaxed"
               dangerouslySetInnerHTML={{ __html: value?.story_text }}
             />
           </>
@@ -121,7 +121,7 @@ const StoryUi = ({ value }) => {
         {tagvalue == "comment" ? (
           <>
             <div
-              className="text-sm text-gray-700font-semibold  leading-relaxed"
+              className="text-sm text-gray-700font-semibold break-words break-all  leading-relaxed"
               dangerouslySetInnerHTML={{ __html: value?.comment_text }}
             />
           </>

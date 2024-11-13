@@ -3,12 +3,10 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 // Api get data acording to filter
-export const GetArticledata = createAsyncThunk("artcledata", async (tags,) => {
- 
+export const GetArticledata = createAsyncThunk("artcledata", async (tags) => {
   try {
-    const { drop1, drop2, timevalue,paginationpagevalue,searchvalue } = tags;
-    
-
+    const { drop1, drop2, timevalue, paginationpagevalue, searchvalue } = tags;
+ console.log(timevalue)
     // time set format
 
     // tag value
@@ -20,17 +18,11 @@ export const GetArticledata = createAsyncThunk("artcledata", async (tags,) => {
       `https://hn.algolia.com/api/v1/${searchwithdate}?${tagvalue}&numericFilters=${timevalue}`,
 
       {
-  
-        
-        params:{
-          page:paginationpagevalue,
-          query:searchvalue
-          
-          
-          
-        }
+        params: {
+          page: paginationpagevalue,
+          query: searchvalue,
+        },
       }
-      
     );
 
     if (drop2 === "Popularity") {
@@ -39,7 +31,6 @@ export const GetArticledata = createAsyncThunk("artcledata", async (tags,) => {
     } else {
       return res.data.hits;
     }
-
   } catch (error) {
     console.log(error);
   }

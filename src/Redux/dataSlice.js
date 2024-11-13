@@ -28,7 +28,7 @@ state.searchvalue=action.payload
         state.articledatastatus = "pending";
       })
       .addCase(GetArticledata.fulfilled, (state, action) => {
-        console.log(action.payload);
+    
         state.articlesdata = action.payload;
         state.articledatastatus = "fullfilled";
       })

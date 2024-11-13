@@ -20,19 +20,19 @@ const Navbar = () => {
   };
   
   const debouncegetdata = debounce((searchvalue) => {
-    console.log("calling");
+
     dispatch(updatedatawithSearch(searchvalue));
   }, 500);
   
   const handleSearchdata = (searchvalue) => {
-    console.log(searchvalue);
+
     debouncegetdata(searchvalue); 
   };
 
   return (
     <>
       <header className="w-full">
-        <nav className=" h-[6vh] sm:h-[7vh]  p-2 bg-orange-500 gap-8 flex  ">
+        <nav className=" h-[7vh] sm:h-[7vh]  p-2 bg-orange-500 gap-8 flex  ">
           <div className="flex sm:w-1/5 gap-2 items-center">
             <img
               className="w-14 sm:w-[50px]  sm:h-[50px] "

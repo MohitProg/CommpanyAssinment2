@@ -13,6 +13,8 @@ const Home = () => {
   const { articlesdata, paginationpagevalue,articledatastatus } = useSelector(
     (state) => state.article
   );
+
+
   // state for page value
   const [pagevalue, setpagevalue] = useState(0);
 
@@ -42,7 +44,7 @@ const Home = () => {
           <h1>No data is available </h1>
         </div>}
         </div>
-        <div className="flex w-full  items-center justify-center">
+        <div className="flex w-full  items-center justify-center p-3">
           <Pagination
             count={35}
             color="red"
