@@ -42,9 +42,9 @@ const Home = () => {
           <h1>No data is available </h1>
         </div>}
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex w-full  items-center justify-center">
           <Pagination
-            count={4}
+            count={35}
             color="red"
             page={pagevalue}
             onChange={(e, value) => setpagevalue(value)}

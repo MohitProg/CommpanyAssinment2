@@ -3,21 +3,39 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch } from "react-redux";
 import { updatedatawithSearch } from "../Redux/dataSlice";
 const Navbar = () => {
-  const dispatch=useDispatch()
-  const [search,setsearch]=useState("");
-  const username=localStorage.getItem("name")
+  const dispatch = useDispatch();
+  const [search, setsearch] = useState("");
+  const username = localStorage.getItem("name");
 
-  useEffect(()=>{
-dispatch(updatedatawithSearch(search))
-  },[search])
+
+
+// using debouncing for searching a query here 
+
+  const debounce = (fn, delay) => {
+    let timeoutId; 
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => fn(...args), delay);
+    };
+  };
+  
+  const debouncegetdata = debounce((searchvalue) => {
+    console.log("calling");
+    dispatch(updatedatawithSearch(searchvalue));
+  }, 500);
+  
+  const handleSearchdata = (searchvalue) => {
+    console.log(searchvalue);
+    debouncegetdata(searchvalue); 
+  };
+
   return (
     <>
       <header className="w-full">
         <nav className=" h-[6vh] sm:h-[7vh]  p-2 bg-orange-500 gap-8 flex  ">
           <div className="flex sm:w-1/5 gap-2 items-center">
             <img
-             
-              className=" sm:w-[50px] w-10 sm:h-[50px] "
+              className="w-14 sm:w-[50px]  sm:h-[50px] "
               src="https://hn.algolia.com/public/899d76bbc312122ee66aaaff7f933d13.png"
               alt=""
             />
@@ -32,11 +50,11 @@ dispatch(updatedatawithSearch(search))
             <SearchIcon fontSize="large" className="text-orange-500" />
             <input
               type="text"
-              onChange={(e)=>setsearch(e.target.value)}
+              onChange={(e)=>handleSearchdata(e.target.value)}
               placeholder="Search Stories  by title,url or author"
               className=" w-full sm:flex-1 sm:py-1 outline-none text-lg placeholder:text-gray-500 "
             />
-            <div className="flex items-center gap-2 ">
+            <div className=" items-center gap-2 hidden sm:flex ">
               <span className="hidden sm:block">Search by </span>
               <img
                 className="h-20 w-20"

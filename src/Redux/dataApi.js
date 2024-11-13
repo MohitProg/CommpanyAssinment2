@@ -17,7 +17,7 @@ export const GetArticledata = createAsyncThunk("artcledata", async (tags,) => {
     const searchwithdate = drop2 === "Date" ? `search_by_date` : "search";
 
     const res = await axios.get(
-      `http://hn.algolia.com/api/v1/${searchwithdate}?${tagvalue}&numericFilters=${timevalue}`,
+      `https://hn.algolia.com/api/v1/${searchwithdate}?${tagvalue}&numericFilters=${timevalue}`,
 
       {
   
